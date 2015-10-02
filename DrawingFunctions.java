@@ -71,6 +71,36 @@ public class DrawingFunctions {
         game.currRate_label = util.create_label(15, 375, "Current money rate: $" + temp, 250, 25, Color.WHITE);
         game.test.add(game.currRate_label);
         
+        /*
+         * Fruit price Labels
+         */
+        //Lemons
+        
+        temp = Double.toString(game.fruits[0].getPrice());
+        game.lemonP_label = util.create_label(160, game.FIRST_BUTTON, "$" + temp, 75, 25, Color.WHITE);
+        game.test.add(game.lemonP_label);
+        
+        //Oranges
+        temp = Double.toString(game.fruits[1].getPrice());
+        game.orangeP_label = util.create_label(160, game.FIRST_BUTTON+35, "$" + temp, 75, 25, Color.WHITE);
+        game.test.add(game.orangeP_label);
+
+        //Apples
+        temp = Double.toString(game.fruits[2].getPrice());
+        game.appleP_label = util.create_label(160, game.FIRST_BUTTON+70, "$" + temp, 75, 25, Color.WHITE);
+        game.test.add(game.appleP_label);
+        
+        //Grapes	
+        temp = Double.toString(game.fruits[3].getPrice());
+        game.grapeP_label = util.create_label(405, game.FIRST_BUTTON, "$" + temp, 75, 25, Color.WHITE);
+        game.test.add(game.grapeP_label);
+        
+        //Blueberries
+        temp = Double.toString(game.fruits[4].getPrice());
+        game.blueberryP_label = util.create_label(405, game.FIRST_BUTTON+35, "$" + temp, 75, 25, Color.WHITE);
+        game.test.add(game.blueberryP_label);
+        
+        
         
 	
         

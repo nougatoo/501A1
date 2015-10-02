@@ -82,28 +82,15 @@ public class Game implements Serializable{
 	public JLabel general_message_label1, general_message_label2, general_message_label3, general_message_label4, general_message_label5;
 	
 	private int[] numBlock = new int[3]; //Integer rep of all blocks
-	private final int MAX_GRID_NUM = 400;
-	private final int NUMBER_OF_COLORS = 5;
+	public final int MAX_GRID_NUM = 400;
+	public final int NUMBER_OF_COLORS = 5;
+	public final int NUMBER_OF_FRUITS = 5;
 	
 	//Non-Graphics Attributes
 	private double current_money;
 	private double money_rate;
 	private double total_money_made;
 	
-	public double getTotalMoneyMade()
-	{
-		return total_money_made;
-	}
-	
-	public double getMoneyRate()
-	{
-		return money_rate;
-	}
-	
-	public double getCurrentMoney()
-	{
-		return current_money;
-	}
 	
 	private int game_type;
 
@@ -116,7 +103,7 @@ public class Game implements Serializable{
 	private Fruit apple;
 	private Fruit grape;
 	private Fruit blueberry;
-	private Fruit[] fruits = new Fruit[5]; //Change this when if more fruits added
+	protected Fruit[] fruits = new Fruit[5]; //Change this when if more fruits added
 	
 	/*
 	 * Color blocks that we wanted to use
@@ -140,9 +127,9 @@ public class Game implements Serializable{
 	private Point[] empty_Spots = new Point[400];
 	private int last_Empty = -1; //Index in empty_Spots that is the last empty (lets me know how many empty spots there are)
 	
-	final int WIDTH = 800;
-	final int HEIGHT = 600;
-	final int FIRST_BUTTON = 450;
+	public final int WIDTH = 800;
+	public final int HEIGHT = 600;
+	public final int FIRST_BUTTON = 450;
 	
 	private MainListener main_listener = new MainListener(this);
 	
@@ -1341,6 +1328,8 @@ public class Game implements Serializable{
         /*
          * Fruit price Labels
          */
+		
+		/*
         //Lemons
         temp = Double.toString(lemon.getPrice());
         lemonP_label = util.create_label(160, FIRST_BUTTON, "$" + temp, 75, 25, Color.WHITE);
@@ -1366,7 +1355,7 @@ public class Game implements Serializable{
         blueberryP_label = util.create_label(405, FIRST_BUTTON+35, "$" + temp, 75, 25, Color.WHITE);
         test.add(blueberryP_label);
         
-        
+        */
         
         /*
          * Fruit Count labels
@@ -1454,6 +1443,28 @@ public class Game implements Serializable{
 		stop_for_save = false;
 
 	}
+	
+
+	/* 
+	 * TEST CODE TEST CODE TEST CODE
+	 */
+	public double getTotalMoneyMade()
+	{
+		return total_money_made;
+	}
+	
+	public double getMoneyRate()
+	{
+		return money_rate;
+	}
+	
+	public double getCurrentMoney()
+	{
+		return current_money;
+	}
+	
+	
+	
 
 	
 }
