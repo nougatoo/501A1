@@ -53,6 +53,24 @@ public class DrawingFunctions {
         game.test.add(game.general_message_label5);
 
         
+		/* 
+		 * Money Labels
+		 */
+        //Creates a label for total money made
+        temp = Double.toString(game.getTotalMoneyMade());
+        game.totalMon_label = util.create_label(15, 350, "Total Money Made: $" + temp, 250, 25, Color.WHITE);
+        game.test.add(game.totalMon_label);
+
+        //Creates a label for the current money 
+        temp = Double.toString(game.getCurrentMoney());
+        game.currMon_label = util.create_label(15, 400, "Current money: $" + temp, 250, 25, Color.WHITE);
+        game.test.add(game.currMon_label);              
+    
+        //Creates a label for the current money rate
+        temp = Double.toString(game.getMoneyRate());
+        game.currRate_label = util.create_label(15, 375, "Current money rate: $" + temp, 250, 25, Color.WHITE);
+        game.test.add(game.currRate_label);
+        
         
 	
         

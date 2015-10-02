@@ -54,6 +54,12 @@ import javax.swing.JPanel;
 
 public class Game implements Serializable{
 
+	
+	/*
+	 * TEST CODE TEST CODE TEST CODE
+	 */
+	
+	private DrawingFunctions drawingFunctions = new DrawingFunctions(this);
 
 	/**
 	 * 
@@ -64,16 +70,16 @@ public class Game implements Serializable{
 
 	//Graphic attributes
 	private JFrame frame;
-	private GamePanel test;
+	public GamePanel test;
 	private WelcomeScreen welcome_screen;
 	
 	private JButton lemon_button, orange_button, apple_button, grape_button, blueberry_button;
 	private JButton upgradeYBlocks_button, upgradeOBlocks_button, upgradeRBlocks_button, upgradePBlocks_button, upgradeBBlocks_button;
 	
-	private JLabel currMon_label, currRate_label, totalMon_label, lemonP_label, orangeP_label, appleP_label, grapeP_label, blueberryP_label;
-	private JLabel numLemon_label, numOranges_label, numApple_label, numGrape_label, numBlueberry_label; //Number of fruit purchased
-	private JLabel numYellow_label, numOrange_label, numRed_label, numPurple_label, numBlue_label; //Number of blocks generated label
-	private JLabel general_message_label1, general_message_label2, general_message_label3, general_message_label4, general_message_label5;
+	public JLabel currMon_label, currRate_label, totalMon_label, lemonP_label, orangeP_label, appleP_label, grapeP_label, blueberryP_label;
+	public JLabel numLemon_label, numOranges_label, numApple_label, numGrape_label, numBlueberry_label; //Number of fruit purchased
+	public JLabel numYellow_label, numOrange_label, numRed_label, numPurple_label, numBlue_label; //Number of blocks generated label
+	public JLabel general_message_label1, general_message_label2, general_message_label3, general_message_label4, general_message_label5;
 	
 	private int[] numBlock = new int[3]; //Integer rep of all blocks
 	private final int MAX_GRID_NUM = 400;
@@ -83,6 +89,21 @@ public class Game implements Serializable{
 	private double current_money;
 	private double money_rate;
 	private double total_money_made;
+	
+	public double getTotalMoneyMade()
+	{
+		return total_money_made;
+	}
+	
+	public double getMoneyRate()
+	{
+		return money_rate;
+	}
+	
+	public double getCurrentMoney()
+	{
+		return current_money;
+	}
 	
 	private int game_type;
 
@@ -1273,6 +1294,10 @@ public class Game implements Serializable{
 		 * General message labels that is just used to show the user messages as needed
 		 * and each one become more "transparent" than the last
 		 */
+		
+		drawingFunctions.drawLabels();
+		
+		/*
         //Creates a label for the general message 1 (most recent)
         general_message_label1 = util.create_label(470, 540, "", 360, 25, Color.WHITE);
         test.add(general_message_label1);
@@ -1288,13 +1313,15 @@ public class Game implements Serializable{
         
         general_message_label5 = util.create_label(470, 440, "", 360, 25, gray4);
         test.add(general_message_label5);
-
+		*/
         
         
 		
 		/* 
 		 * Money Labels
 		 */
+		
+		/*
         //Creates a label for total money made
         temp = Double.toString(total_money_made);
         totalMon_label = util.create_label(15, 350, "Total Money Made: $" + temp, 250, 25, Color.WHITE);
@@ -1309,7 +1336,7 @@ public class Game implements Serializable{
         temp = Double.toString(money_rate);
         currRate_label = util.create_label(15, 375, "Current money rate: $" + temp, 250, 25, Color.WHITE);
         test.add(currRate_label);
-        
+        */
         
         /*
          * Fruit price Labels
@@ -1427,7 +1454,7 @@ public class Game implements Serializable{
 		stop_for_save = false;
 
 	}
-	
+
 	
 }
 
