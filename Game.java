@@ -115,7 +115,7 @@ public class Game implements Serializable{
 	private double start_time;
 	private double end_time;
 	private double difference;
-	private DecimalFormat df2 = new DecimalFormat("###.##");
+	private DecimalFormat money_dFormat = new DecimalFormat("###.##");
 	private Point[] empty_Spots = new Point[400];
 	private int last_Empty = -1; //Index in empty_Spots that is the last empty (lets me know how many empty spots there are)
 	
@@ -362,14 +362,14 @@ public class Game implements Serializable{
 		}
 		
 		//Rounds to the nearest 2
-		current_money = Double.valueOf(df2.format(current_money));
+		current_money = Double.valueOf(money_dFormat.format(current_money));
         
         //Updates our current amount of money
 		String curr_str = Double.toString(current_money);
         currMon_label.setText("Current money: $" + curr_str);
         
         //Updates the total amount of money made
-		total_money_made = Double.valueOf(df2.format(total_money_made));
+		total_money_made = Double.valueOf(money_dFormat.format(total_money_made));
 		temp = Double.toString(total_money_made);
 	    totalMon_label.setText("Total money made: $" + temp);
 	    
@@ -940,7 +940,7 @@ public class Game implements Serializable{
 		String temp;
 		JLabel fruit, fruit_num;
 		
-		fruits[choice].setPrice(Double.valueOf(df2.format(fruits[choice].getPrice())));
+		fruits[choice].setPrice(Double.valueOf(money_dFormat.format(fruits[choice].getPrice())));
 		temp = Double.toString(fruits[choice].getPrice());
 		
 		if(choice == 0)
@@ -985,12 +985,12 @@ public class Game implements Serializable{
 		//A place holder string used for display
 		String temp;
 		
-		current_money = Double.valueOf(df2.format(current_money));
+		current_money = Double.valueOf(money_dFormat.format(current_money));
 		temp = Double.toString(current_money);
 	    currMon_label.setText("Current money: $" + temp);
 	   
 	    //change to rate label
-		money_rate = Double.valueOf(df2.format(money_rate));
+		money_rate = Double.valueOf(money_dFormat.format(money_rate));
 		temp = Double.toString(money_rate);
 	    currRate_label.setText("Current money rate: $" + temp);
 	}
