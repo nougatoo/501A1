@@ -479,6 +479,7 @@ public class Game implements Serializable{
 			 */
 			updateEmptySpots();
 			
+		
 			do{	
 				/*
 				 * If there are two or less spots then there isn't a reason
@@ -491,6 +492,13 @@ public class Game implements Serializable{
 				x = empty_Spots[last_Empty].x;
 				y = empty_Spots[last_Empty].y;
 				last_Empty--;
+				
+				
+				if(last_Empty == -1)
+				{
+					handleFullGrid();
+					updateEmptySpots();
+				}
 				
 	        	grid[x][y] = breakPointIndex+1; 
 	        	colored++;
@@ -1283,7 +1291,10 @@ public class Game implements Serializable{
 	 */
 	public void drawLabels()
 	{	
-		drawingFunctions.drawLabels();   
+		drawingFunctions.drawBlockLabels();   
+		drawingFunctions.drawFruitLabels();
+		drawingFunctions.drawGeneralLabels();
+		drawingFunctions.drawMoneyLabels();
 	}
 	
 	public void saveGame() throws IOException

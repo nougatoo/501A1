@@ -9,6 +9,12 @@ public class DrawingFunctions {
 	private Game game;
 	private Utilities util = new Utilities();
 	
+
+	private Color gray1 = new Color(200,200,200);
+	private Color gray2 = new Color(112,112,112);
+	private Color gray3 = new Color(72,72,72);
+	private Color gray4 = new Color(32,32,32);
+	
 	
 	
 	public DrawingFunctions(Game g)
@@ -16,22 +22,8 @@ public class DrawingFunctions {
 		game = g;
 	}
 	
-	
-	
-	/*
-	 * Makes calls to the create_label function in the utilties class to create
-	 * fruit and money labels
-	 */
-	public void drawLabels()
+	public void drawGeneralLabels()
 	{
-		
-		Color gray1 = new Color(200,200,200);
-		Color gray2 = new Color(112,112,112);
-		Color gray3 = new Color(72,72,72);
-		Color gray4 = new Color(32,32,32);
-		
-		String temp; 
-		
 		/*
 		 * General message labels that is just used to show the user messages as needed
 		 * and each one become more "transparent" than the last
@@ -51,8 +43,13 @@ public class DrawingFunctions {
         
         game.general_message_label5 = util.create_label(470, 440, "", 360, 25, gray4);
         game.test.add(game.general_message_label5);
+		
+	}
+	
+	public void drawMoneyLabels()
+	{
 
-        
+        String temp;
 		/* 
 		 * Money Labels
 		 */
@@ -71,6 +68,56 @@ public class DrawingFunctions {
         game.currRate_label = util.create_label(15, 375, "Current money rate: $" + temp, 250, 25, Color.WHITE);
         game.test.add(game.currRate_label);
         
+	}
+	
+	public void drawBlockLabels()
+	{
+        
+		String temp;
+        /*
+         * Blocks Labels
+         */
+        
+        //Number of yellow blocks label
+        temp = Integer.toString(game.blocks[0].getNum_blocks());
+        game.numYellow_label = util.create_label(500, 101, "Number of Yellow Blocks: " + temp, 200, 25, Color.WHITE);
+        game.test.add(game.numYellow_label);
+        
+        //Number of orange blocks label
+		temp = Integer.toString(game.blocks[1].getNum_blocks());
+        game.numOrange_label = util.create_label(500, 141, "Number of Orange Blocks: " + temp, 200, 25, Color.WHITE);
+        game.test.add(game.numOrange_label);
+        
+        //Number of red blocks label
+		temp = Integer.toString(game.blocks[2].getNum_blocks());
+        game.numRed_label = util.create_label(500, 181, "Number of Red Blocks: " + temp, 200, 25, Color.WHITE);
+        game.test.add(game.numRed_label);
+        
+        //Number of purple blocks label
+        temp = Integer.toString(game.blocks[3].getNum_blocks());
+        game.numPurple_label = util.create_label(500, 221, "Number of Purple Blocks: " + temp, 200, 25, Color.WHITE);
+        game.test.add(game.numPurple_label);
+        
+        //Number of blue blocks label
+        temp = Integer.toString(game.blocks[4].getNum_blocks());
+        game.numBlue_label = util.create_label(500, 261, "Number of Blue Blocks: " + temp, 200, 25, Color.WHITE);
+        game.test.add(game.numBlue_label);
+        
+        
+	}
+	
+	
+	
+	/*
+	 * Makes calls to the create_label function in the utilties class to create
+	 * fruit and money labels
+	 */
+	public void drawFruitLabels()
+	{
+		
+		String temp; 
+		
+
         /*
          * Fruit price Labels
          */
@@ -128,37 +175,7 @@ public class DrawingFunctions {
         temp = Integer.toString(game.fruits[4].getCount());
         game.numBlueberry_label = util.create_label(365, game.FIRST_BUTTON+30, "[ " + temp + " ]", 30, 30, Color.WHITE);
         game.test.add(game.numBlueberry_label);
-        
-        /*
-         * Blocks Labels
-         */
-        
-        //Number of yellow blocks label
-        temp = Integer.toString(game.blocks[0].getNum_blocks());
-        game.numYellow_label = util.create_label(500, 101, "Number of Yellow Blocks: " + temp, 200, 25, Color.WHITE);
-        game.test.add(game.numYellow_label);
-        
-        //Number of orange blocks label
-		temp = Integer.toString(game.blocks[1].getNum_blocks());
-        game.numOrange_label = util.create_label(500, 141, "Number of Orange Blocks: " + temp, 200, 25, Color.WHITE);
-        game.test.add(game.numOrange_label);
-        
-        //Number of red blocks label
-		temp = Integer.toString(game.blocks[2].getNum_blocks());
-        game.numRed_label = util.create_label(500, 181, "Number of Red Blocks: " + temp, 200, 25, Color.WHITE);
-        game.test.add(game.numRed_label);
-        
-        //Number of purple blocks label
-        temp = Integer.toString(game.blocks[3].getNum_blocks());
-        game.numPurple_label = util.create_label(500, 221, "Number of Purple Blocks: " + temp, 200, 25, Color.WHITE);
-        game.test.add(game.numPurple_label);
-        
-        //Number of blue blocks label
-        temp = Integer.toString(game.blocks[4].getNum_blocks());
-        game.numBlue_label = util.create_label(500, 261, "Number of Blue Blocks: " + temp, 200, 25, Color.WHITE);
-        game.test.add(game.numBlue_label);
-        
-        
+
         
 	
         
