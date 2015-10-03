@@ -113,7 +113,7 @@ public class Game implements Serializable{
 	private Block red;
 	private Block purple;
 	private Block blue;
-	private Block[] blocks = new Block[5];
+	protected Block[] blocks = new Block[5];
 	
 	/*
 	 * 0 = Lemons
@@ -1357,63 +1357,63 @@ public class Game implements Serializable{
         
         */
         
-        /*
-         * Fruit Count labels
-         */
-        
-        //Lemons
-        temp = Integer.toString(lemon.getCount());
-        numLemon_label = util.create_label(120, FIRST_BUTTON-5, "[ " + temp + " ]", 30, 30, Color.WHITE);
-        test.add(numLemon_label);
-                        
-        //Oranges
-        temp = Integer.toString(oranges.getCount());
-        numOranges_label = util.create_label(120, FIRST_BUTTON+30, "[ " + temp + " ]", 30, 30, Color.WHITE);
-        test.add(numOranges_label);      
-        
-        //Apples
-        temp = Integer.toString(apple.getCount());
-        numApple_label = util.create_label(120, FIRST_BUTTON+65, "[ " + temp + " ]", 30, 30, Color.WHITE);
-        test.add(numApple_label);
-        
-        //Grapes
-        temp = Integer.toString(grape.getCount());
-        numGrape_label = util.create_label(365, FIRST_BUTTON-5, "[ " + temp + " ]", 30, 30, Color.WHITE);
-        test.add(numGrape_label);
-
-        //Blueberries
-        temp = Integer.toString(blueberry.getCount());
-        numBlueberry_label = util.create_label(365, FIRST_BUTTON+30, "[ " + temp + " ]", 30, 30, Color.WHITE);
-        test.add(numBlueberry_label);
+//        /*
+//         * Fruit Count labels
+//         */
+//        
+//        //Lemons
+//        temp = Integer.toString(lemon.getCount());
+//        numLemon_label = util.create_label(120, FIRST_BUTTON-5, "[ " + temp + " ]", 30, 30, Color.WHITE);
+//        test.add(numLemon_label);
+//                        
+//        //Oranges
+//        temp = Integer.toString(oranges.getCount());
+//        numOranges_label = util.create_label(120, FIRST_BUTTON+30, "[ " + temp + " ]", 30, 30, Color.WHITE);
+//        test.add(numOranges_label);      
+//        
+//        //Apples
+//        temp = Integer.toString(apple.getCount());
+//        numApple_label = util.create_label(120, FIRST_BUTTON+65, "[ " + temp + " ]", 30, 30, Color.WHITE);
+//        test.add(numApple_label);
+//        
+//        //Grapes
+//        temp = Integer.toString(grape.getCount());
+//        numGrape_label = util.create_label(365, FIRST_BUTTON-5, "[ " + temp + " ]", 30, 30, Color.WHITE);
+//        test.add(numGrape_label);
+//
+//        //Blueberries
+//        temp = Integer.toString(blueberry.getCount());
+//        numBlueberry_label = util.create_label(365, FIRST_BUTTON+30, "[ " + temp + " ]", 30, 30, Color.WHITE);
+//        test.add(numBlueberry_label);
         
         /*
          * Blocks Labels
          */
         
-        //Number of yellow blocks label
-        temp = Integer.toString(blocks[0].getNum_blocks());
-        numYellow_label = util.create_label(500, 101, "Number of Yellow Blocks: " + temp, 200, 25, Color.WHITE);
-        test.add(numYellow_label);
-        
-        //Number of orange blocks label
-		temp = Integer.toString(blocks[1].getNum_blocks());
-        numOrange_label = util.create_label(500, 141, "Number of Orange Blocks: " + temp, 200, 25, Color.WHITE);
-        test.add(numOrange_label);
-        
-        //Number of red blocks label
-		temp = Integer.toString(blocks[2].getNum_blocks());
-        numRed_label = util.create_label(500, 181, "Number of Red Blocks: " + temp, 200, 25, Color.WHITE);
-        test.add(numRed_label);
-        
-        //Number of purple blocks label
-        temp = Integer.toString(blocks[3].getNum_blocks());
-        numPurple_label = util.create_label(500, 221, "Number of Purple Blocks: " + temp, 200, 25, Color.WHITE);
-        test.add(numPurple_label);
-        
-        //Number of blue blocks label
-        temp = Integer.toString(blocks[4].getNum_blocks());
-        numBlue_label = util.create_label(500, 261, "Number of Blue Blocks: " + temp, 200, 25, Color.WHITE);
-        test.add(numBlue_label);
+//        //Number of yellow blocks label
+//        temp = Integer.toString(blocks[0].getNum_blocks());
+//        numYellow_label = util.create_label(500, 101, "Number of Yellow Blocks: " + temp, 200, 25, Color.WHITE);
+//        test.add(numYellow_label);
+//        
+//        //Number of orange blocks label
+//		temp = Integer.toString(blocks[1].getNum_blocks());
+//        numOrange_label = util.create_label(500, 141, "Number of Orange Blocks: " + temp, 200, 25, Color.WHITE);
+//        test.add(numOrange_label);
+//        
+//        //Number of red blocks label
+//		temp = Integer.toString(blocks[2].getNum_blocks());
+//        numRed_label = util.create_label(500, 181, "Number of Red Blocks: " + temp, 200, 25, Color.WHITE);
+//        test.add(numRed_label);
+//        
+//        //Number of purple blocks label
+//        temp = Integer.toString(blocks[3].getNum_blocks());
+//        numPurple_label = util.create_label(500, 221, "Number of Purple Blocks: " + temp, 200, 25, Color.WHITE);
+//        test.add(numPurple_label);
+//        
+//        //Number of blue blocks label
+//        temp = Integer.toString(blocks[4].getNum_blocks());
+//        numBlue_label = util.create_label(500, 261, "Number of Blue Blocks: " + temp, 200, 25, Color.WHITE);
+//        test.add(numBlue_label);
         
         
         
