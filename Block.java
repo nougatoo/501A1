@@ -18,22 +18,28 @@ public class Block implements Serializable{
 	/*
 	 * yellow_multipliers.x is the money rate to change at
 	 * yellow_multipliers.y is the multiplier value
+	 * all blocks only have 5 points to change at
 	 */
 	private Point[] multiplier = new Point[5]; //Number can change depending on how many we want 
 	private int current_mult_index = 0;
 	
-	public Block(int mult1, int b1,
-			int mult2, int b2, 
-			int mult3, int b3, 
-			int mult4, int b4, 
-			int mult5, int b5, 
-			int desired_num_per_dollar)
+	
+	public Block(BlockChangePoints bcp, int desired_num_per_dollar)
 	{
+		
+		/*
 		multiplier[0] = new Point(b1, mult1);
 		multiplier[1] = new Point(b2, mult2);
 		multiplier[2] = new Point(b3, mult3);
 		multiplier[3] = new Point(b4, mult4);
 		multiplier[4] = new Point(b5, mult5);
+		*/
+		Point tempPoints[] = bcp.getPoints();
+		multiplier[0] = tempPoints[0];
+		multiplier[1] = tempPoints[1];
+		multiplier[2] = tempPoints[2];
+		multiplier[3] = tempPoints[3];
+		multiplier[4] = tempPoints[4];
 
 		num_per_dollar = desired_num_per_dollar;
 		

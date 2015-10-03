@@ -54,13 +54,7 @@ import javax.swing.JPanel;
 
 public class Game implements Serializable{
 
-	
-	/*
-	 * TEST CODE TEST CODE TEST CODE
-	 */
-	
-	private DrawingFunctions drawingFunctions = new DrawingFunctions(this);
-	private boolean gamePaused = false;
+
 
 	/**
 	 * 
@@ -172,6 +166,15 @@ public class Game implements Serializable{
 	
 	private JButton show_stats_button;
 	
+	
+	
+	/*
+	 * TEST CODE TEST CODE TEST CODE
+	 */
+	
+	private DrawingFunctions drawingFunctions = new DrawingFunctions(this);
+	private boolean gamePaused = false;
+	
 	public Game(int choice)
 	{
 	}
@@ -205,44 +208,25 @@ public class Game implements Serializable{
 		 * Creating the Blocks that we want to use
 		 */
 		
-		yellow = new Block(2, 1000, 
-						1, 100000000, 
-						100, 10000000, 
-						1000, 1000000, 
-						10000, 10000000, 
-						100);
+		BlockChangePoints bcp = new BlockChangePoints(2, 1000, 
+				1, 10000, 
+				100, 10000000, 
+				1000, 1000000, 
+				10000, 10000000);
+		
+		yellow = new Block(bcp,100);
 		blocks[0] = yellow;
 
-		orange = new Block(1, 1000,
-						10, 10000,
-						100, 100000,
-						1000, 1000000,
-						10000, 10000000,
-						1000);
+		orange = new Block(bcp,1000);
 		blocks[1] = orange;
 
-		red = new Block(1, 1000,
-						10, 10000,
-						100, 100000,
-						1000, 1000000,
-						10000, 10000000,
-						1000);
+		red = new Block(bcp,1000);
 		blocks[2] = red;
 
-		purple = new Block(1, 1000,
-						10, 10000,
-						100, 100000,
-						1000, 1000000,
-						10000, 10000000,
-						10000);
+		purple = new Block(bcp,10000);
 		blocks[3] = purple;
 
-		blue = new Block(1, 1000,
-						10, 10000,
-						100, 100000,
-						1000, 1000000,
-						10000, 10000000,
-						100000);
+		blue = new Block(bcp,100000);
 		blocks[4] = blue;
 
 
