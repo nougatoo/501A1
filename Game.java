@@ -60,6 +60,7 @@ public class Game implements Serializable{
 	 */
 	
 	private DrawingFunctions drawingFunctions = new DrawingFunctions(this);
+	private boolean gamePaused = false;
 
 	/**
 	 * 
@@ -205,8 +206,8 @@ public class Game implements Serializable{
 		 */
 		
 		yellow = new Block(2, 1000, 
-						1, 10000, 
-						100, 100000, 
+						1, 100000000, 
+						100, 10000000, 
 						1000, 1000000, 
 						10000, 10000000, 
 						100);
@@ -314,6 +315,7 @@ public class Game implements Serializable{
 	 */
 	public void showStats()
 	{
+		if(gamePaused == false){
 		String temp;
 		int[] color_break = new int[NUMBER_OF_COLORS];
 		int index;
@@ -390,6 +392,7 @@ public class Game implements Serializable{
 				e.printStackTrace();
 			}
 	    }
+		}
 	    
 	}
 	
@@ -418,6 +421,13 @@ public class Game implements Serializable{
 					empty_Spots[last_Empty].y = j;
 				}
 			}
+		}
+		
+		if(last_Empty == -1)
+		{
+			handleFullGrid();
+			updateEmptySpots();
+			
 		}
 		
 	}
@@ -835,6 +845,7 @@ public class Game implements Serializable{
 	 */
 	public void handleUpgradeMenuChoice(int choice)
 	{
+		gamePaused = true;
 		String str = "";
 		int numChanged = 0;
 		
@@ -893,6 +904,9 @@ public class Game implements Serializable{
 		
 		updateGeneralMessages(str);
 		changeBlockGenMultiplier();
+		updateEmptySpots();
+		
+		gamePaused = false;
 	}
 	
 	public void endUpgradeMultiplier()
@@ -1268,155 +1282,8 @@ public class Game implements Serializable{
 	 * fruit and money labels
 	 */
 	public void drawLabels()
-	{
-		
-		Color gray1 = new Color(200,200,200);
-		Color gray2 = new Color(112,112,112);
-		Color gray3 = new Color(72,72,72);
-		Color gray4 = new Color(32,32,32);
-		
-		String temp; 
-		
-		/*
-		 * General message labels that is just used to show the user messages as needed
-		 * and each one become more "transparent" than the last
-		 */
-		
-		drawingFunctions.drawLabels();
-		
-		/*
-        //Creates a label for the general message 1 (most recent)
-        general_message_label1 = util.create_label(470, 540, "", 360, 25, Color.WHITE);
-        test.add(general_message_label1);
-		
-        general_message_label2 = util.create_label(470, 515, "", 360, 25, gray1);
-        test.add(general_message_label2);
-
-        general_message_label3 = util.create_label(470, 490, "", 360, 25, gray2);
-        test.add(general_message_label3);
-        
-        general_message_label4 = util.create_label(470, 465, "", 360, 25, gray3);
-        test.add(general_message_label4);
-        
-        general_message_label5 = util.create_label(470, 440, "", 360, 25, gray4);
-        test.add(general_message_label5);
-		*/
-        
-        
-		
-		/* 
-		 * Money Labels
-		 */
-		
-		/*
-        //Creates a label for total money made
-        temp = Double.toString(total_money_made);
-        totalMon_label = util.create_label(15, 350, "Total Money Made: $" + temp, 250, 25, Color.WHITE);
-        test.add(totalMon_label);
-
-        //Creates a label for the current money 
-        temp = Double.toString(current_money);
-        currMon_label = util.create_label(15, 400, "Current money: $" + temp, 250, 25, Color.WHITE);
-        test.add(currMon_label);              
-    
-        //Creates a label for the current money rate
-        temp = Double.toString(money_rate);
-        currRate_label = util.create_label(15, 375, "Current money rate: $" + temp, 250, 25, Color.WHITE);
-        test.add(currRate_label);
-        */
-        
-        /*
-         * Fruit price Labels
-         */
-		
-		/*
-        //Lemons
-        temp = Double.toString(lemon.getPrice());
-        lemonP_label = util.create_label(160, FIRST_BUTTON, "$" + temp, 75, 25, Color.WHITE);
-        test.add(lemonP_label);
-        
-        //Oranges
-        temp = Double.toString(oranges.getPrice());
-        orangeP_label = util.create_label(160, FIRST_BUTTON+35, "$" + temp, 75, 25, Color.WHITE);
-        test.add(orangeP_label);
-
-        //Apples
-        temp = Double.toString(apple.getPrice());
-        appleP_label = util.create_label(160, FIRST_BUTTON+70, "$" + temp, 75, 25, Color.WHITE);
-        test.add(appleP_label);
-        
-        //Grapes	
-        temp = Double.toString(grape.getPrice());
-        grapeP_label = util.create_label(405, FIRST_BUTTON, "$" + temp, 75, 25, Color.WHITE);
-        test.add(grapeP_label);
-        
-        //Blueberries
-        temp = Double.toString(blueberry.getPrice());
-        blueberryP_label = util.create_label(405, FIRST_BUTTON+35, "$" + temp, 75, 25, Color.WHITE);
-        test.add(blueberryP_label);
-        
-        */
-        
-//        /*
-//         * Fruit Count labels
-//         */
-//        
-//        //Lemons
-//        temp = Integer.toString(lemon.getCount());
-//        numLemon_label = util.create_label(120, FIRST_BUTTON-5, "[ " + temp + " ]", 30, 30, Color.WHITE);
-//        test.add(numLemon_label);
-//                        
-//        //Oranges
-//        temp = Integer.toString(oranges.getCount());
-//        numOranges_label = util.create_label(120, FIRST_BUTTON+30, "[ " + temp + " ]", 30, 30, Color.WHITE);
-//        test.add(numOranges_label);      
-//        
-//        //Apples
-//        temp = Integer.toString(apple.getCount());
-//        numApple_label = util.create_label(120, FIRST_BUTTON+65, "[ " + temp + " ]", 30, 30, Color.WHITE);
-//        test.add(numApple_label);
-//        
-//        //Grapes
-//        temp = Integer.toString(grape.getCount());
-//        numGrape_label = util.create_label(365, FIRST_BUTTON-5, "[ " + temp + " ]", 30, 30, Color.WHITE);
-//        test.add(numGrape_label);
-//
-//        //Blueberries
-//        temp = Integer.toString(blueberry.getCount());
-//        numBlueberry_label = util.create_label(365, FIRST_BUTTON+30, "[ " + temp + " ]", 30, 30, Color.WHITE);
-//        test.add(numBlueberry_label);
-        
-        /*
-         * Blocks Labels
-         */
-        
-//        //Number of yellow blocks label
-//        temp = Integer.toString(blocks[0].getNum_blocks());
-//        numYellow_label = util.create_label(500, 101, "Number of Yellow Blocks: " + temp, 200, 25, Color.WHITE);
-//        test.add(numYellow_label);
-//        
-//        //Number of orange blocks label
-//		temp = Integer.toString(blocks[1].getNum_blocks());
-//        numOrange_label = util.create_label(500, 141, "Number of Orange Blocks: " + temp, 200, 25, Color.WHITE);
-//        test.add(numOrange_label);
-//        
-//        //Number of red blocks label
-//		temp = Integer.toString(blocks[2].getNum_blocks());
-//        numRed_label = util.create_label(500, 181, "Number of Red Blocks: " + temp, 200, 25, Color.WHITE);
-//        test.add(numRed_label);
-//        
-//        //Number of purple blocks label
-//        temp = Integer.toString(blocks[3].getNum_blocks());
-//        numPurple_label = util.create_label(500, 221, "Number of Purple Blocks: " + temp, 200, 25, Color.WHITE);
-//        test.add(numPurple_label);
-//        
-//        //Number of blue blocks label
-//        temp = Integer.toString(blocks[4].getNum_blocks());
-//        numBlue_label = util.create_label(500, 261, "Number of Blue Blocks: " + temp, 200, 25, Color.WHITE);
-//        test.add(numBlue_label);
-        
-        
-        
+	{	
+		drawingFunctions.drawLabels();   
 	}
 	
 	public void saveGame() throws IOException
