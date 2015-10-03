@@ -59,9 +59,8 @@ public class Utilities implements Serializable{
 	public int getRandInt(int max, int min)
 	{
         Random rand = new Random();
-        int randomNum = rand.nextInt(((max-1) - min) + 1) + 0;    
-        
-        return randomNum;
+   
+        return rand.nextInt(((max-1) - min) + 1) + 0;
 	}
 	
 }
