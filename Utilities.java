@@ -1,3 +1,4 @@
+package sourceCode;
 import java.awt.Color;
 import java.io.Serializable;
 import java.util.Random;
@@ -60,7 +61,7 @@ public class Utilities implements Serializable{
 	{
         Random rand = new Random();
    
-        return rand.nextInt(((max-1) - min) + 1) + 0;
+        return rand.nextInt(max-min)+min;
 	}
 	
 }

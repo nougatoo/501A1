@@ -1,3 +1,4 @@
+package sourceCode;
 /**
  * main.java
  * Created By: Brandon Brien
@@ -536,6 +537,7 @@ public class Game implements Serializable{
 		frame.setSize(WIDTH, HEIGHT);
 	    frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		
 	}
 	
